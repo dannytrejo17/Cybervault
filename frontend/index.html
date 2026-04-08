@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<title>CyberVault</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- usaremos cdn de tailwindcss -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<script>
+tailwind.config = {
+darkMode: 'class'
+}
+</script>
+
+<style>
+  .vuln-card {
+    box-shadow:
+      0 0 18px rgba(34, 197, 94, 0.4),
+      0 0 42px rgba(34, 197, 94, 0.15),
+      inset 0 0 32px rgba(34, 197, 94, 0.06);    
+  }
+  .vuln-card:hover {
+    box-shadow:
+      0 0 26px rgba(34, 197, 94, 0.55),
+      0 0 64px rgba(34, 197, 94, 0.22),
+      inset 0 0 40px rgba(34, 197, 94, 0.1);
+  }
+  .vuln-card-grid {
+    background-image:
+      linear-gradient(rgba(74, 222, 128, 0.14) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(74, 222, 128, 0.14) 1px, transparent 1px);
+    background-size: 22px 22px;
+    background-position: center bottom;
+    transform: perspective(320px) rotateX(14deg);
+    transform-origin: 50% 100%;
+    mask-image: linear-gradient(to bottom, transparent 0%, black 25%, black 85%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 25%, black 85%, transparent 100%);
+  }
+
+  .vuln-card-media {
+    box-shadow:
+      0 14px 34px rgba(0, 0, 0, 0.65),
+      0 0 28px rgba(34, 197, 94, 0.22);
+  }
+
+</style>
+
+</head>
+
+
+<body class="bg-[rgb(8,8,12)] dark:bg-[rgb(28,28,35)] text-gray-200 font-mono transition-colors duration-300">
+        
+
+<!-- Header-->
+
+<header class="relative flex items-center p-4 border-b border-green-500">
+
+  <!-- LOGO -->
+  <h1 class="text-green-400 text-xl drop-shadow-[0_0_8px_#00ff00]">
+    CyberVault
+  </h1>
+
+  <!-- NAV DESKTOP (centrado) -->
+  <nav class="hidden md:block absolute left-1/2 transform -translate-x-1/2">
+    <ul class="flex gap-6 text-sm">
+      <li><a href="network.html" class="hover:text-green-400 transition">Network</a></li>
+      <li><a href="sqli.html" class="hover:text-green-400 transition">Web</a></li>
+      <li><a href="active-directory.html" class="hover:text-green-400 transition">Active Directory</a></li>
+      <li><a href="brute.html" class="hover:text-green-400 transition">Fuerza Bruta</a></li>
+    </ul>
+  </nav>
+
+  <!-- DERECHA -->
+  <div class="flex items-center gap-3 ml-auto">
+    
+    <!-- BOTÓN MODO -->
+    <button
+      onclick="toggleDark()"
+      class="border border-green-500 px-3 py-1 text-xs hover:bg-green-500 hover:text-black transition">
+      Modo
+    </button>
+
+    <!-- BOTÓN MENÚ (móvil) -->
+    <button id="menu-btn" class="md:hidden text-green-400 text-xl">
+      ☰
+    </button>
+
+  </div>
+
+</header>
+
+<!-- MENÚ MÓVIL -->
+<nav id="mobile-menu" class="hidden flex flex-col gap-4 p-4 border-b border-green-500 md:hidden">
+  <a href="network.html">Network</a>
+  <a href="sqli.html">Web</a>
+  <a href="active-directory.html">Active Directory</a>
+  <a href="brute.html">Fuerza Bruta</a>
+</nav>
+
+<main> 
+
+<section class="text-center py-20 px-5">
+
+<h2 class="text-3xl md:text-4xl text-green-400 mb-4 drop-shadow-[0_0_10px_#00ff00]">
+Explora vulnerabilidades y comandos
+</h2>
+
+
+<p class="max-w-xl mx-auto text-gray-400">
+Bienvenido a tu panel de hacking ético. Aquí podrás explorar vulnerabilidades por categoría,
+ver comandos predefinidos y añadir los tuyos propios para practicar o estudiar.
+</p>
+
+</section>
+
+
+
+<!-- Contenido priniciapl-->
+<section class="max-w-7xl mx-auto px-6 pb-16">
+
+<h3 class="text-xl text-green-400 mb-8 text-center">
+Categorías
+</h3>
+
+<div class="flex flex-wrap justify-center gap-6">
+
+<!-- seccion network -->
+<a href="network.html"
+  class="vuln-card group flex w-full max-w-[280px] flex-col overflow-hidden rounded-2xl border border-green-400/70 bg-black/30 backdrop-blur-md transition duration-300 hover:scale-[1.01] hover:border-green-400">
+  <div class="relative w-full shrink-0 overflow-hidden transition duration-300 group-hover:brightness-110">
+    <img
+      src="img/network.jpeg"
+      alt=""
+      class="vuln-card-media block aspect-[16/10] w-full object-cover object-center"
+      loading="lazy"
+      decoding="async"
+    />
+    <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/15 to-black/55"></div>
+    <div class="pointer-events-none absolute inset-0 vuln-card-grid opacity-40"></div>
+  </div>
+  <div class="flex flex-col items-center justify-center gap-2 border-t border-green-500/30 bg-black/45 px-4 py-4 text-center">
+    <h4 class="text-lg font-bold tracking-tight text-green-400 drop-shadow-[0_0_12px_rgba(34,197,94,0.55)] md:text-xl">
+      Redes
+    </h4>
+    <p class="max-w-[16rem] text-xs leading-relaxed text-gray-300 md:text-sm">
+      Comandos de enumeración de red y escaneo.
+    </p>
+  </div>
+</a>
+
+<!-- SQL Injection -->
+<a href="sqli.html"
+  class="vuln-card group flex w-full max-w-[280px] flex-col overflow-hidden rounded-2xl border border-green-400/70 bg-black/30 backdrop-blur-md transition duration-300 hover:scale-[1.01] hover:border-green-400">
+  <div class="relative w-full shrink-0 overflow-hidden transition duration-300 group-hover:brightness-110">
+    <img
+      src="img/sqli.jpeg"
+      alt=""
+      class="vuln-card-media block aspect-[16/10] w-full object-cover object-center"
+      loading="lazy"
+      decoding="async"
+    />
+    <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/15 to-black/55"></div>
+    <div class="pointer-events-none absolute inset-0 vuln-card-grid opacity-40"></div>
+  </div>
+  <div class="flex flex-col items-center justify-center gap-2 border-t border-green-500/30 bg-black/45 px-4 py-4 text-center">
+    <h4 class="text-lg font-bold tracking-tight text-green-400 drop-shadow-[0_0_12px_rgba(34,197,94,0.55)] md:text-xl">
+      SQL Injection
+    </h4>
+    <p class="max-w-[16rem] text-xs leading-relaxed text-gray-300 md:text-sm">
+      Comandos de inyección SQL
+    </p>
+  </div>
+</a>
+
+<!-- Active Directory -->
+<a href="active-directory.html"
+  class="vuln-card group flex w-full max-w-[280px] flex-col overflow-hidden rounded-2xl border border-green-400/70 bg-black/30 backdrop-blur-md transition duration-300 hover:scale-[1.01] hover:border-green-400">
+  <div class="relative w-full shrink-0 overflow-hidden transition duration-300 group-hover:brightness-110">
+    <img
+      src="img/active-directory.jpeg"
+      alt=""
+      class="vuln-card-media block aspect-[16/10] w-full object-cover object-center"
+      loading="lazy"
+      decoding="async"
+    />
+    <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/15 to-black/55"></div>
+    <div class="pointer-events-none absolute inset-0 vuln-card-grid opacity-40"></div>
+  </div>
+  <div class="flex flex-col items-center justify-center gap-2 border-t border-green-500/30 bg-black/45 px-4 py-4 text-center">
+    <h4 class="text-lg font-bold tracking-tight text-green-400 drop-shadow-[0_0_12px_rgba(34,197,94,0.55)] md:text-xl">
+      Active Directory
+    </h4>
+    <p class="max-w-[16rem] text-xs leading-relaxed text-gray-300 md:text-sm">
+      Enumeración y ataques en AD.
+    </p>
+  </div>
+</a>
+
+<!-- Brute Force -->
+<a href="brute.html"
+  class="vuln-card group flex w-full max-w-[280px] flex-col overflow-hidden rounded-2xl border border-green-400/70 bg-black/30 backdrop-blur-md transition duration-300 hover:scale-[1.01] hover:border-green-400">
+  <div class="relative w-full shrink-0 overflow-hidden transition duration-300 group-hover:brightness-110">
+    <img
+      src="img/fuerzaBruta.jpeg"
+      alt=""
+      class="vuln-card-media block aspect-[16/10] w-full object-cover object-center"
+      loading="lazy"
+      decoding="async"
+    />
+    <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/15 to-black/55"></div>
+    <div class="pointer-events-none absolute inset-0 vuln-card-grid opacity-40"></div>
+  </div>
+  <div class="flex flex-col items-center justify-center gap-2 border-t border-green-500/30 bg-black/45 px-4 py-4 text-center">
+    <h4 class="text-lg font-bold tracking-tight text-green-400 drop-shadow-[0_0_12px_rgba(34,197,94,0.55)] md:text-xl">
+      Fuerza Bruta
+    </h4>
+    <p class="max-w-[16rem] text-xs leading-relaxed text-gray-300 md:text-sm">
+      Ataques de fuerza bruta y credenciales.
+    </p>
+  </div>
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<!-- footer -->
+
+<footer class="text-center text-xs text-gray-500 border-t border-green-500 p-4">
+
+© 2026 CyberVault — Ethical Hacking
+
+</footer>
+
+
+<script src="js/theme.js"></script>
+<script src="js/script.js"></script>
+</body>
+
+</html>
