@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Active Directory - Comandos</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+darkMode: 'class'
+}
+</script>
+
+</head>
+
+<body data-category="active directory" class="bg-[rgb(8,8,12)] dark:bg-[rgb(28,28,35)] text-gray-200 font-mono transition-colors duration-300">
+
+<header class="flex justify-between items-center p-4 border-b border-green-500">
+  <h1 class="text-green-400 text-xl drop-shadow-[0_0_8px_#00ff00]">
+    CyberVault
+  </h1>
+  
+
+  <div class="flex items-center gap-3 ml-auto">  
+    <input 
+      type="text" 
+      placeholder="Buscar..." 
+      class="hidden sm:block px-2 py-1 bg-gray-900 border border-gray-700 rounded focus:border-green-400 outline-none transition"
+      id="search-input"
+    >
+
+  <nav>
+    <ul class="flex gap-4">
+      <li>
+        <a href="index.html"
+        class="px-4 py-2 bg-green-500 text-black rounded hover:bg-green-400 transition">
+        Inicio
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+</div>
+   <!-- BUSCADOR -->
+
+</header>
+
+<main class="max-w-4xl mx-auto p-6">
+
+<section class="space-y-6">
+
+<h2 class="text-green-400 text-xl drop-shadow-[0_0_8px_#00ff00]">
+Active Directory - Comandos
+</h2>
+
+<ul id="commands-list" class="space-y-4 p-4">
+<!-- comandos -->
+ 
+</ul>
+
+<form id="add-command-form" class="space-y-4">
+
+
+
+<textarea 
+id="command-text"
+placeholder="Escribe un comando"
+maxlength="100"
+class="w-full p-3 bg-gray-900 border border-gray-700 rounded focus:border-green-400 outline-none">
+</textarea>
+
+<textarea 
+id="command-desc"
+placeholder="Descripción del comando"
+maxlength="100"
+class="w-full p-3 bg-gray-900 border border-gray-700 rounded focus:border-green-400 outline-none">
+</textarea>
+
+<button
+type="submit"
+class="px-5 py-2 bg-green-500 text-black rounded hover:bg-green-400 transition">
+Añadir comando
+</button>
+
+</form>
+
+</section>
+
+</main>
+
+<footer class="text-center text-xs text-gray-500 border-t border-green-500 p-4 mt-10">
+  © 2026 CyberVault — Ethical Hacking
+</footer>
+
+<script type="module" src="js/modules/commands-app.js"></script>
+<script src="js/theme.js"></script>
+
+</body>
+</html>
